@@ -1,0 +1,16 @@
+# 3 Ý TƯỞNG SẢN PHẨM ỨNG DỤNG AI / TỰ ĐỘNG HÓA TẠI GHN
+
+## Ý tưởng 1: Dashboard Cảnh báo Quá tải Bưu cục & Tối ưu Năng suất (Dự án hiện tại)
+- **Vấn đề:** Hiện tại việc quản lý năng lực của các bưu cục, Hub thường phải làm thủ công qua file Excel. Quản lý khó nhận biết ngay lập tức bưu cục nào đang bị quá tải (âm capacity) để điều phối kịp thời.
+- **Giải pháp (Sản phẩm):** Xây dựng một Dashboard trực quan, tự động cập nhật dữ liệu. Dashboard sẽ tự động tính toán tỷ lệ Giao Thành Công (GTC), Lấy Thành Công (LTC) và tô đỏ các bưu cục đang có rủi ro quá tải.
+- **Lợi ích:** Giúp Quản lý Vùng ra quyết định nhanh chóng, điều phối nhân sự hoặc hàng hóa kịp thời, giảm thiểu tỷ lệ rớt hàng và tăng tốc độ xử lý.
+
+## Ý tưởng 2: Hệ thống Tự động Dự báo & Đề xuất Xếp ca làm việc (Shift Scheduling)
+- **Vấn đề:** Việc xếp ca làm việc cho nhân viên vận hành (đặc biệt trong các kỳ Mega Sale) thường dựa vào cảm tính và kinh nghiệm, dễ dẫn đến thừa người lúc vắng hoặc thiếu người lúc đông hàng.
+- **Giải pháp (Sản phẩm):** Một công cụ sử dụng AI để dự báo sản lượng hàng hóa (Volume) dựa trên dữ liệu lịch sử các ngày trong tuần và sự kiện. Từ đó, tool sẽ tự động đề xuất số lượng nhân sự cần thiết cho từng ca làm việc tại Kho Trung Chuyển (KTC).
+- **Lợi ích:** Tối ưu hóa chi phí nhân sự (Cost/Kg), đảm bảo năng suất vận hành luôn ổn định (Kg/giờ công).
+
+## Ý tưởng 3: Trợ lý Ảo (Chatbot) Phân tích Báo cáo Khắc phục Sự cố & An toàn lao động
+- **Vấn đề:** Các báo cáo sự cố (tai nạn, hư hỏng hàng hóa) thường rời rạc và khó tổng hợp để tìm ra nguyên nhân gốc rễ (Root cause).
+- **Giải pháp (Sản phẩm):** Xây dựng một Chatbot (trợ lý ảo) nội bộ. Nhân viên HR hoặc Quản lý có thể chat trực tiếp để hỏi "Trong tháng 5 có bao nhiêu ca sự cố ở KTC?" hoặc "Nguyên nhân chính dẫn đến tai nạn lao động tuần qua là gì?". Chatbot sẽ tự đọc dữ liệu và trả lời ngay lập tức, kèm theo biểu đồ.
+- **Lợi ích:** Tiết kiệm hàng giờ đồng hồ ngồi làm báo cáo tổng hợp sự cố. Giúp HR và Quản lý theo dõi sát sao tình hình an toàn lao động, từ đó đưa ra các chính sách phòng ngừa kịp thời.

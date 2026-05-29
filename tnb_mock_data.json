@@ -1,0 +1,36 @@
+{
+    "overview": {
+        "gtc": {
+            "volume": 60000,
+            "rate": 65.21
+        },
+        "ltc": {
+            "volume": 92004,
+            "rate": 92.04
+        }
+    },
+    "top_weak_hubs": [
+        { "hub": "Bưu Cục An Giang", "capacity_diff": -450 },
+        { "hub": "Bưu Cục Kiên Giang", "capacity_diff": -380 },
+        { "hub": "Bưu Cục Cà Mau", "capacity_diff": -290 },
+        { "hub": "Bưu Cục Sóc Trăng", "capacity_diff": -210 },
+        { "hub": "Bưu Cục Ninh Kiều", "capacity_diff": -150 }
+    ],
+    "gtc_by_hub": [
+        { "hub": "Bưu Cục Tiền Giang", "volume": 12500, "rate": 72.5 },
+        { "hub": "Bưu Cục Long An", "volume": 15200, "rate": 68.3 },
+        { "hub": "Bưu Cục Ninh Kiều", "volume": 14800, "rate": 66.8 },
+        { "hub": "Bưu Cục Đồng Tháp", "volume": 9800, "rate": 64.2 },
+        { "hub": "Bưu Cục Bến Tre", "volume": 7500, "rate": 63.5 },
+        { "hub": "Bưu Cục Vĩnh Long", "volume": 6200, "rate": 61.0 },
+        { "hub": "Bưu Cục Kiên Giang", "volume": 11500, "rate": 58.4 },
+        { "hub": "Bưu Cục An Giang", "volume": 14504, "rate": 55.2 }
+    ],
+    "ltc_by_hub": [
+        { "hub": "Bưu Cục Trà Vinh", "volume": 4500, "rate": 96.5 },
+        { "hub": "Bưu Cục Hậu Giang", "volume": 5200, "rate": 95.2 },
+        { "hub": "Bưu Cục Bạc Liêu", "volume": 6800, "rate": 94.8 },
+        { "hub": "Bưu Cục Sóc Trăng", "volume": 8500, "rate": 92.5 },
+        { "hub": "Bưu Cục Cà Mau", "volume": 7800, "rate": 90.1 }
+    ]
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Vận hành Logistics</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Logi<span class="highlight">Sync</span></h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="active"><a href="#"><i class="icon">📊</i> Tổng quan</a></li>
+                <li><a href="#"><i class="icon">🚚</i> Giao hàng</a></li>
+                <li><a href="#"><i class="icon">📦</i> Lấy hàng</a></li>
+                <li><a href="#"><i class="icon">⚠️</i> Quá tải</a></li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <p>Cập nhật: <span id="update-time">Hôm nay</span></p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <h1>Báo Cáo Hiệu Suất Vận Hành</h1>
+                    <p>Dashboard theo dõi các chỉ số KPI mạng lưới logistics vùng</p>
+                </div>
+                <div class="user-profile">
+                    <div class="user-info">
+                        <span class="user-name">Quản trị viên</span>
+                        <span class="user-role">Quản lý Vùng</span>
+                    </div>
+                    <div class="avatar">👨‍💼</div>
+                </div>
+            </header>
+
+            <!-- KPIs Widgets -->
+            <section class="kpi-grid">
+                <div class="kpi-card glass">
+                    <div class="kpi-icon gtc-icon">📦</div>
+                    <div class="kpi-info">
+                        <h3>Tổng Sản Lượng Giao (GTC)</h3>
+                        <p id="kpi-gtc-volume">0</p>
+                    </div>
+                </div>
+                <div class="kpi-card glass">
+                    <div class="kpi-icon gtc-rate-icon">⚡</div>
+                    <div class="kpi-info">
+                        <h3>Tỷ lệ Giao Thành Công</h3>
+                        <p id="kpi-gtc-rate">0%</p>
+                    </div>
+                </div>
+                <div class="kpi-card glass">
+                    <div class="kpi-icon ltc-icon">📥</div>
+                    <div class="kpi-info">
+                        <h3>Tổng Sản Lượng Lấy (LTC)</h3>
+                        <p id="kpi-ltc-volume">0</p>
+                    </div>
+                </div>
+                <div class="kpi-card glass">
+                    <div class="kpi-icon ltc-rate-icon">✅</div>
+                    <div class="kpi-info">
+                        <h3>Tỷ lệ Lấy Thành Công</h3>
+                        <p id="kpi-ltc-rate">0%</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <!-- Productivity vs GTC Rate (Mixed Chart) -->
+                <div class="chart-container glass large">
+                    <div class="chart-header">
+                        <h2>Phân tích Tương quan: Năng suất (Volume) & Tỷ lệ GTC</h2>
+                        <span class="badge">Đa chiều</span>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="productivityGtcChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Top 10 Weak Hubs -->
+                <div class="chart-container glass large">
+                    <div class="chart-header">
+                        <h2>Top 5 Bưu Cục Quá Tải (Âm Capacity)</h2>
+                        <span class="badge danger">Rủi ro cao</span>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="weakHubsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- GTC Rates -->
+                <div class="chart-container glass">
+                    <div class="chart-header">
+                        <h2>Top Bưu Cục Giao Thành Công</h2>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="gtcChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- LTC Rates -->
+                <div class="chart-container glass">
+                    <div class="chart-header">
+                        <h2>Top Bưu Cục Lấy Thành Công</h2>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="ltcChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Custom App JS -->
+    <script src="app.js"></script>
+</body>
+</html>

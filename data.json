@@ -1,0 +1,158 @@
+{
+    "overview": {
+        "gtc": {
+            "volume": 8887.0,
+            "rate": 79.93514314178658
+        },
+        "ltc": {
+            "volume": 193053.0,
+            "rate": 90.47256452891175
+        }
+    },
+    "top_weak_hubs": [
+        {
+            "hub": "Bưu Cục 2227 Văn Tiến Dũng-Bình Chánh-HCM",
+            "capacity_diff": -63.0
+        },
+        {
+            "hub": "Bưu Cục 26 Bùi Thanh Khiết-Tân Túc-Bình Chánh",
+            "capacity_diff": -57.0
+        },
+        {
+            "hub": "Bưu Cục 692 An Phú Tây-Bình Chánh-HCM",
+            "capacity_diff": -81.0
+        },
+        {
+            "hub": "Bưu Cục 75 Đường Số 2 KDC Nguyên Sơn-Bình Hưng-Bình Chánh",
+            "capacity_diff": -124.0
+        },
+        {
+            "hub": "Bưu Cục C1/7 Lại Hùng Cường-Vĩnh Lộc B-Bình Chánh-HCM",
+            "capacity_diff": -108.0
+        },
+        {
+            "hub": "Bưu Cục F5/9A Trần Văn Giàu-Bình Chánh-HCM",
+            "capacity_diff": -108.0
+        },
+        {
+            "hub": "Bưu Cục Tân Kiên-Bình Chánh-HCM",
+            "capacity_diff": -176.0
+        },
+        {
+            "hub": "Bưu Cục Vĩnh Lộc A-Bình Chánh-HCM",
+            "capacity_diff": -328.0
+        },
+        {
+            "hub": "Bưu Cục Cần Giờ-HCM",
+            "capacity_diff": -144.0
+        },
+        {
+            "hub": "Bưu Cục KDC Giồng Ao-Cần Giờ-HCM",
+            "capacity_diff": -82.0
+        }
+    ],
+    "gtc_by_hub": [
+        {
+            "hub": "Bưu Cục Phường Tây Thạnh-Tân Phú-HCM",
+            "volume": 854.0,
+            "rate": 78.10304449648712
+        },
+        {
+            "hub": "Bưu Cục 82 Nguyễn Sỹ Sách-Q.Tân Bình-HCM",
+            "volume": 652.0,
+            "rate": 82.82208588957054
+        },
+        {
+            "hub": "Bưu Cục 58 Lê Thúc Hoạch-Q.Tân Phú-HCM",
+            "volume": 697.0,
+            "rate": 78.7661406025825
+        },
+        {
+            "hub": "Bưu Cục 20/48A Bờ Bao Tân Thắng-Q.Tân Phú-HCM",
+            "volume": 1176.0,
+            "rate": 83.50340136054422
+        },
+        {
+            "hub": "Bưu Cục 04 Nhất Chi Mai-Q.Tân Bình-HCM",
+            "volume": 914.0,
+            "rate": 84.24507658643327
+        },
+        {
+            "hub": "Bưu Cục Số 25 Đường 12-An Phú-Q.2-HCM",
+            "volume": 1303.0,
+            "rate": 81.35072908672295
+        },
+        {
+            "hub": "Bưu Cục KDC Đồng Chàm-Dĩ An-Bình Dương",
+            "volume": 847.0,
+            "rate": 74.14403778040142
+        },
+        {
+            "hub": "Bưu Cục 53 Đường 22-Linh Đông-Thủ Đức-HCM",
+            "volume": 1294.0,
+            "rate": 81.22102009273571
+        },
+        {
+            "hub": "Bưu Cục 182 Xuyên Á-TP.Dĩ An-Bình Dương",
+            "volume": 670.0,
+            "rate": 75.82089552238806
+        },
+        {
+            "hub": "Bưu Cục 150 Đường DT743A-TP.Dĩ An-Bình Dương",
+            "volume": 480.0,
+            "rate": 79.375
+        }
+    ],
+    "ltc_by_hub": [
+        {
+            "hub": "Bưu Cục 117 Hùng Vương-Q.5-HCM",
+            "volume": 465.0,
+            "rate": 94.6236559139785
+        },
+        {
+            "hub": "Bưu Cục 16A Lê Hồng Phong-Q.10-HCM",
+            "volume": 2016.0,
+            "rate": 91.71626984126983
+        },
+        {
+            "hub": "Bưu Cục 195B Lý Chính Thắng-Q.3-HCM",
+            "volume": 829.0,
+            "rate": 93.60675512665863
+        },
+        {
+            "hub": "Bưu Cục 6 Phạm Văn Hai-Q.Tân Bình-HCM",
+            "volume": 687.0,
+            "rate": 92.57641921397381
+        },
+        {
+            "hub": "Bưu Cục 63 Ký Hòa-Q.5-HCM",
+            "volume": 1450.0,
+            "rate": 87.17241379310346
+        },
+        {
+            "hub": "Bưu Cục 7A/3 Thành Thái-Phường Diên Hồng-HCM",
+            "volume": 2139.0,
+            "rate": 93.03412809724169
+        },
+        {
+            "hub": "Bưu Cục 320 Nguyễn Thị Kiểu-Hiệp Thành-Quận 12-HCM",
+            "volume": 1514.0,
+            "rate": 93.32892998678997
+        },
+        {
+            "hub": "Bưu Cục Phan Huy Ích-Gò Vấp-HCM",
+            "volume": 2918.0,
+            "rate": 72.37834132967787
+        },
+        {
+            "hub": "Bưu Cục Đường 21-Phường 08-Gò Vấp-HCM",
+            "volume": 3618.0,
+            "rate": 93.03482587064677
+        },
+        {
+            "hub": "Bưu Cục 106/3A Tây Lân-Hóc Môn-HCM",
+            "volume": 3328.0,
+            "rate": 89.30288461538461
+        }
+    ]
+}
