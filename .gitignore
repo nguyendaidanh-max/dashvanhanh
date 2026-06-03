@@ -1,0 +1,31 @@
+# Dữ liệu nhạy cảm & script xử lý
+*.py
+*.txt
+*.xlsx
+*.xls
+*.docx
+*.doc
+*.jpg
+*.jpeg
+*.png
+
+# Dữ liệu đã xử lý
+aggregated_data.json
+data_van_hanh_sheets.txt
+extracted_contents.txt
+excel_check_output.txt
+selected_excels_deep_check.txt
+search_excels_output.txt
+search_keywords_output.txt
+sheets_list.txt
+doc_paras.txt
+doc_tables.txt
+
+# Environment & IDE
+.env
+.env.local
+.env.production
+.vscode/
+node_modules/
+.DS_Store
+Thumbs.db

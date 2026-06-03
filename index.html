@@ -3,165 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Báo cáo Vận hành Logistics</title>
-    
+    <meta name="description" content="Dashboard báo cáo hiệu suất kinh doanh KHCN - Dữ liệu mẫu minh họa">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self'">
+    <title>Dashboard Báo Cáo Kinh Doanh KHCN - Toàn Quốc</title>
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Chart.js CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="dashboard-container">
-        <!-- Sidebar -->
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
         <aside class="sidebar">
-            <div class="sidebar-header">
-                <h2>Logi<span class="highlight">Sync</span></h2>
+            <div class="logo-area">
+                <i class="fa-solid fa-chart-line logo-icon"></i>
+                <h2>TL-TELECOM</h2>
             </div>
-            <ul class="nav-menu">
-                <li class="active"><a href="#"><i class="icon">📊</i> Tổng quan</a></li>
-                <li><a href="#"><i class="icon">🚚</i> Giao hàng</a></li>
-                <li><a href="#"><i class="icon">📦</i> Lấy hàng</a></li>
-                <li><a href="#"><i class="icon">⚠️</i> Quá tải</a></li>
-            </ul>
-            
+            <nav class="nav-menu">
+                <a href="#" id="kpiTab" class="active"><i class="fa-solid fa-gauge"></i> Tổng quan KPI</a>
+                <a href="#" id="orgTab"><i class="fa-solid fa-sitemap"></i> Sơ đồ & Phân quyền</a>
+                <a href="#"><i class="fa-solid fa-map-location-dot"></i> Phân tích Địa bàn</a>
+                <a href="#"><i class="fa-solid fa-trophy"></i> Bảng vinh danh</a>
+                <a href="#"><i class="fa-solid fa-circle-exclamation"></i> Nguyên nhân & Đề xuất</a>
+            </nav>
             <div class="sidebar-footer">
-                <p>Cập nhật: <span id="update-time">Hôm nay</span></p>
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Avatar" crossorigin="anonymous" referrerpolicy="no-referrer">
+                    <div class="user-info">
+                        <h4>Admin Thiện Long</h4>
+                        <p>Chuyên viên Kế hoạch</p>
+                    </div>
+                </div>
             </div>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Main Content Area -->
         <main class="main-content">
-            <header class="header">
-                <div class="header-title">
-                    <h1>Báo Cáo Hiệu Suất Vận Hành</h1>
-                    <p>Dashboard theo dõi các chỉ số KPI mạng lưới logistics vùng</p>
-                </div>
-                <div class="user-profile">
-                    <div class="user-info">
-                        <span class="user-name">Quản trị viên</span>
-                        <span class="user-role">Quản lý Vùng</span>
+            <!-- KPI Dashboard Section -->
+            <div id="kpiDashboardSection">
+                <!-- Header -->
+                <header class="content-header">
+                    <div class="header-title">
+                        <h1>Báo Cáo Kinh Doanh KHCN</h1>
+                        <p class="subtitle">Dữ liệu phân tích hiệu quả tuần mới nhất - Toàn Quốc</p>
+                        <p class="demo-watermark" style="background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(239,68,68,0.1)); color: #f59e0b; padding: 6px 14px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; display: inline-block; margin-top: 6px; border: 1px solid rgba(245,158,11,0.25);"><i class="fa-solid fa-triangle-exclamation"></i> DỮ LIỆU MẪU — DEMO PURPOSE ONLY</p>
                     </div>
-                    <div class="avatar">👨‍💼</div>
-                </div>
-            </header>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary"><i class="fa-solid fa-calendar-days"></i> Tuần này</button>
+                        <button id="exportBtn" class="btn btn-primary"><i class="fa-solid fa-file-export"></i> Xuất Báo cáo</button>
+                    </div>
+                </header>
 
-            <!-- Emergency Alert Section -->
-            <section class="alert-section glass danger-alert" id="operational-alerts">
-                <div class="alert-header">
-                    <div class="alert-title-wrapper">
-                        <span class="alert-pulse"></span>
-                        <h2>🚨 BÁO ĐỘNG ĐỎ VẬN HÀNH: NGUY CƠ VỠ TRẬN VÙNG TÂY NAM BỘ</h2>
+                <!-- KPI Cards Section -->
+                <section class="kpi-grid">
+                    <!-- Card 1: Doanh thu -->
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <span class="card-icon icon-revenue"><i class="fa-solid fa-money-bill-trend-up"></i></span>
+                            <span class="card-tag tag-negative">-0.4%</span>
+                        </div>
+                        <div class="kpi-card-body">
+                            <h3>Doanh Thu Dịch Vụ</h3>
+                            <div class="kpi-numbers">
+                                <span class="actual">14,980 M</span>
+                                <span class="slash">/</span>
+                                <span class="target">15,030 M</span>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 99.6%;"></div>
+                            </div>
+                            <div class="kpi-card-footer">
+                                <span class="diff diff-negative"><i class="fa-solid fa-circle-arrow-down"></i> Lệch: -50 M (Đạt 99.6%)</span>
+                            </div>
+                        </div>
                     </div>
-                    <span class="badge danger animate-pulse">Khẩn cấp</span>
-                </div>
-                <div class="alert-content-grid">
-                    <div class="alert-card danger-card">
-                        <h3>⚠️ HIỆU NĂNG GTC ĐÁY (AM CHẾ MINH CÔNG)</h3>
-                        <p class="alert-value">49.70%</p>
-                        <span class="alert-desc">Sản lượng 111,478 đơn giao. Số đơn hoàn trả nhiều hơn giao thành công!</span>
-                    </div>
-                    <div class="alert-card danger-card">
-                        <h3>📥 OPR LẤY HÀNG CHẠM ĐÁY (AN GIANG)</h3>
-                        <p class="alert-value">73.64%</p>
-                        <span class="alert-desc">Tuần 20 OPR 73.64%, tiếp tục yếu kém kéo dài bất kể sản lượng lấy giảm.</span>
-                    </div>
-                    <div class="alert-card danger-card">
-                        <h3>📦 TẮC NGHẼN HÀNG HOÀN (CÀ MAU & KIÊN GIANG)</h3>
-                        <p class="alert-value">385K+ Đơn Hoàn/Tháng</p>
-                        <span class="alert-desc">Cà Mau GTC 55.66%, Kiên Giang 61.81% tạo ra hơn 385.000 đơn hàng hoàn trả.</span>
-                    </div>
-                </div>
-                <div class="alert-footer-actions">
-                    <a href="file:///C:/Users/win/.gemini/antigravity-ide/brain/d63f95c8-3522-4b61-b0a3-8b828945d70b/operational_analysis.md" class="btn btn-primary btn-alert-cta" target="_blank">📄 XEM BÁO CÁO PHÂN TÍCH CHUYÊN SÂU & GIẢI PHÁP</a>
-                </div>
-            </section>
 
-            <!-- KPIs Widgets -->
-            <section class="kpi-grid">
-                <div class="kpi-card glass">
-                    <div class="kpi-icon gtc-icon">📦</div>
-                    <div class="kpi-info">
-                        <h3>Tổng Sản Lượng Giao (GTC)</h3>
-                        <p id="kpi-gtc-volume">0</p>
+                    <!-- Card 2: Di động trả sau -->
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <span class="card-icon icon-mobile"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                            <span class="card-tag tag-negative">-15.7%</span>
+                        </div>
+                        <div class="kpi-card-body">
+                            <h3>Di Động Trả Sau (Mới)</h3>
+                            <div class="kpi-numbers">
+                                <span class="actual">155 TB</span>
+                                <span class="slash">/</span>
+                                <span class="target">186 TB</span>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar bar-mobile" style="width: 83.3%;"></div>
+                            </div>
+                            <div class="kpi-card-footer">
+                                <span class="diff diff-negative"><i class="fa-solid fa-circle-arrow-down"></i> Lệch: -31 TB (Đạt 83.3%)</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="kpi-card glass">
-                    <div class="kpi-icon gtc-rate-icon">⚡</div>
-                    <div class="kpi-info">
-                        <h3>Tỷ lệ Giao Thành Công</h3>
-                        <p id="kpi-gtc-rate">0%</p>
-                    </div>
-                </div>
-                <div class="kpi-card glass">
-                    <div class="kpi-icon ltc-icon">📥</div>
-                    <div class="kpi-info">
-                        <h3>Tổng Sản Lượng Lấy (LTC)</h3>
-                        <p id="kpi-ltc-volume">0</p>
-                    </div>
-                </div>
-                <div class="kpi-card glass">
-                    <div class="kpi-icon ltc-rate-icon">✅</div>
-                    <div class="kpi-info">
-                        <h3>Tỷ lệ Lấy Thành Công</h3>
-                        <p id="kpi-ltc-rate">0%</p>
-                    </div>
-                </div>
-            </section>
 
-            <!-- Charts Section -->
-            <section class="charts-section">
-                <!-- Productivity vs GTC Rate (Mixed Chart) -->
-                <div class="chart-container glass large">
-                    <div class="chart-header">
-                        <h2>Phân tích Tương quan: Năng suất (Volume) & Tỷ lệ GTC</h2>
-                        <span class="badge">Đa chiều</span>
+                    <!-- Card 3: Internet Cáp quang -->
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <span class="card-icon icon-internet"><i class="fa-solid fa-wifi"></i></span>
+                            <span class="card-tag tag-positive">+2.4%</span>
+                        </div>
+                        <div class="kpi-card-body">
+                            <h3>Tỷ Lệ Hoạt Động FTTH</h3>
+                            <div class="kpi-numbers">
+                                <span class="actual">83.2%</span>
+                                <span class="slash">/</span>
+                                <span class="target">100%</span>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar bar-internet" style="width: 83.2%;"></div>
+                            </div>
+                            <div class="kpi-card-footer">
+                                <span class="diff diff-positive"><i class="fa-solid fa-circle-arrow-up"></i> Tăng trưởng: +2.4% (Tốt)</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="canvas-wrapper">
-                        <canvas id="productivityGtcChart"></canvas>
-                    </div>
-                </div>
+                </section>
 
-                <!-- Top 10 Weak Hubs -->
-                <div class="chart-container glass large">
-                    <div class="chart-header">
-                        <h2>Top 5 Bưu Cục Quá Tải (Âm Capacity)</h2>
-                        <span class="badge danger">Rủi ro cao</span>
+                <!-- Charts Section -->
+                <section class="charts-grid">
+                    <!-- Chart 1: Revenue Comparison -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>So Sánh Doanh Thu Thực Tế vs Kế Hoạch Theo Địa Bàn</h3>
+                            <p>Đơn vị tính: Triệu đồng (M)</p>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
                     </div>
-                    <div class="canvas-wrapper">
-                        <canvas id="weakHubsChart"></canvas>
-                    </div>
-                </div>
 
-                <!-- GTC Rates -->
-                <div class="chart-container glass">
-                    <div class="chart-header">
-                        <h2>Top Bưu Cục Giao Thành Công</h2>
+                    <!-- Chart 2: Subscribers breakdown -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Tỷ Lệ Đóng Góp Thuê Bao Mới Phát Triển</h3>
+                            <p>Phân bổ thị phần theo địa bàn huyện/thành phố</p>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="shareChart"></canvas>
+                        </div>
                     </div>
-                    <div class="canvas-wrapper">
-                        <canvas id="gtcChart"></canvas>
-                    </div>
-                </div>
+                </section>
 
-                <!-- LTC Rates -->
-                <div class="chart-container glass">
-                    <div class="chart-header">
-                        <h2>Top Bưu Cục Lấy Thành Công</h2>
+                <!-- Table & Highlight Section -->
+                <section class="tables-grid">
+                    <!-- Detailed Data Table -->
+                    <div class="table-card">
+                        <div class="table-card-header">
+                            <h3>Bảng Số Liệu Chi Tiết Các Địa Bàn</h3>
+                            <div class="table-actions">
+                                <input type="text" id="tableSearch" placeholder="Tìm địa bàn..." maxlength="50" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="table-body">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Địa Bàn</th>
+                                        <th>Kế Hoạch DT</th>
+                                        <th>Thực Hiện DT</th>
+                                        <th>Đạt % DT</th>
+                                        <th>Di Động Mới</th>
+                                        <th>Đạt % Di Động</th>
+                                        <th>Trạng Thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dataTableBody">
+                                    <!-- Loaded dynamically from app.js -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <div class="canvas-wrapper">
-                        <canvas id="ltcChart"></canvas>
+
+                    <!-- Leaderboard Card -->
+                    <div class="leaderboard-card">
+                        <h3>Xếp Hạng Địa Bàn Phát Triển</h3>
+                        <div class="leaderboard-section">
+                            <h4 class="title-best"><i class="fa-solid fa-circle-check"></i> TOP ĐỊA BÀN ĐẠT CHỈ TIÊU TỐT</h4>
+                            <ul id="bestList">
+                                <!-- Loaded dynamically -->
+                            </ul>
+                        </div>
+                        <div class="leaderboard-section">
+                            <h4 class="title-worst"><i class="fa-solid fa-circle-xmark"></i> TOP ĐỊA BÀN HOẠT ĐỘNG KÉM</h4>
+                            <ul id="worstList">
+                                <!-- Loaded dynamically -->
+                            </ul>
+                        </div>
                     </div>
+                </section>
+            </div>
+
+            <!-- Interactive Org Chart Section (Initially Hidden) -->
+            <div id="orgChartSection" style="display: none;">
+                <!-- Header -->
+                <header class="content-header">
+                    <div class="header-title">
+                        <h1>Cơ Cấu Tổ Chức & Phân Cấp Quyền Hạn</h1>
+                        <p class="subtitle">Mô hình Tập đoàn Thiện Long Nha Trang - Tối ưu vận hành, gọi vốn & bảo vệ tài sản</p>
+                    </div>
+                    <div class="header-actions">
+                        <button id="exportOrgBtn" class="btn btn-primary"><i class="fa-solid fa-file-word"></i> Xuất Quy chế Phân quyền</button>
+                    </div>
+                </header>
+
+                <div class="org-layout">
+                    <!-- Dynamic Tree Container -->
+                    <div class="org-tree-wrapper">
+                        <div class="org-tree-canvas" id="orgTreeCanvas">
+                            <!-- Dynamic Tree Nodes will be generated here -->
+                        </div>
+                    </div>
+
+                    <!-- Sliding Details Panel -->
+                    <aside class="org-details-panel" id="orgDetailsPanel">
+                        <div class="panel-header">
+                            <h3 id="panelTitle">Vui lòng chọn bộ phận</h3>
+                            <button id="closePanelBtn" class="close-panel-btn"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-tags">
+                                <span class="panel-tag tag-level" id="panelLevel">CẤP BẬC</span>
+                                <span class="panel-tag tag-owner" id="panelOwner">SỞ HỮU</span>
+                            </div>
+                            <div class="panel-desc" id="panelDesc">Click vào một bộ phận trên sơ đồ để xem vai trò chi tiết và các phân quyền quan trọng.</div>
+                            
+                            <div class="info-group">
+                                <h4><i class="fa-solid fa-clipboard-list text-primary"></i> NHIỆM VỤ CHÍNH VẬN HÀNH</h4>
+                                <ul id="panelDuties" class="panel-list">
+                                    <!-- Dynamic -->
+                                </ul>
+                            </div>
+
+                            <div class="info-group">
+                                <h4><i class="fa-solid fa-shield-halved text-success"></i> QUYỀN HẠN & GIỚI HẠN GỌI VỐN</h4>
+                                <ul id="panelRights" class="panel-list">
+                                    <!-- Dynamic -->
+                                </ul>
+                            </div>
+
+                            <div class="info-group">
+                                <h4><i class="fa-solid fa-arrows-spin text-warning"></i> QUY TRÌNH PHỐI HỢP LIÊN PHÒNG</h4>
+                                <ul id="panelRelations" class="panel-list">
+                                    <!-- Dynamic -->
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
-            </section>
+            </div>
         </main>
     </div>
-
-    <!-- Custom App JS -->
+    <script src="data.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
